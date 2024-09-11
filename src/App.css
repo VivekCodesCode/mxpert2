@@ -1,38 +1,234 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Background styling */
+.sci-fi-container {
+  background: url('data:image/jpeg;base64,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') no-repeat center center fixed; /* Add your background URL */
+  background-size: cover;
+  color: white;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 50px; /* For proper bottom padding */
+}
+.explore-btn{
+  width: 100%;
+}
+
+/* Header styling */
+.header-section {
+  text-align: center;
+  margin: 30px 0;
+  padding-top: 20px;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.filter-buttons {
+  margin-top: 15px;
+}
+
+.filter-btn {
+  margin: 0 15px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card styling */
+.sci-fi-card {
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(63,9,121,1) 35%);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sci-fi-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sci-fi-card img {
+  border-radius: 15px 15px 0 0;
+}
+
+.status-badge {
+  margin-top: 10px;
+}
+
+.badge {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge-new {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.badge-completed {
+  background-color: #28a745;
+  color: #fff;
+}
+.upper_imge{
+  background-color: #fff;
+  background: url("https://media.istockphoto.com/id/1139597839/photo/space-station.jpg?s=2048x2048&w=is&k=20&c=UHE2adCsbEDqJQAcNUtl9VdBVYcVJ8B-z3OSDxqwLW8=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  width: 100% !important;
+}
+
+.explore-btn {
+  margin-top: 10px;
+  background: #4c7cff !important;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Pagination styling */
+.pagination {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.pagination button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.pagination button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Main container */
+.storypage-container {
+  background: linear-gradient(180deg, #121212, #1a1a2e); /* Dark background */
+  color: white;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 50px;
+}
+
+/* Header styles */
+.storypage-header {
+  text-align: center;
+  padding: 30px;
+  background-color: #1f1f2e;
+  border-radius: 0 0 30px 30px;
+}
+
+.storypage-title {
+  font-size: 2.5rem;
+  color: #ff9f1a;
+  font-weight: bold;
+}
+
+.storypage-buttons {
+  margin-top: 20px;
+}
+
+.storypage-btn {
+  margin: 0 10px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.storypage-instructions {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #ddd;
+  font-weight: 300;
+}
+
+/* Story Cards */
+.storypage-card-section {
+  padding: 40px 0;
+}
+
+.storypage-card {
+  background-color: #232340;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.storypage-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+.storypage-card-img {
+  border-radius: 15px 15px 0 0;
+}
+
+.storypage-card .card-title {
+  color: #ff9f1a;
+}
+
+.storypage-explore-btn {
+  margin-top: 10px;
+  background-color: #ff9f1a;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.storypage-explore-btn:hover {
+  background-color: #ffa733;
+  color: white;
+}
+
+/* Pagination section */
+.pagination {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.pagination button {
+  background-color: #2f2f4f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.pagination button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.story_image{
+
+ margin-top: 100px;
+ margin-right: 100px;
+ border: 2px solid white;
+ height: max-content;
+}
+.storypage-card{
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(63,9,121,1) 35%);
 }
